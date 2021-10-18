@@ -43,7 +43,7 @@ overdue.columns = ["new_user_id", "违约"]
 occupation = userinfo[["new_user_id","职业"]]
 default = overdue[["new_user_id","违约"]]
 data = pd.merge(occupation, default, how="outer", on="new_user_id")
-size = data.groupby(["职业","违约"])['new_user_id'].agg(['count']).reset_index()
+size = data.groupby(["职业","违约"])['new_user_id'].agg(['count']).reset_index()         #对表格进行分类
 plt.scatter(size["职业"], size["违约"], size['count']/100)
 plt.show()
 '''
