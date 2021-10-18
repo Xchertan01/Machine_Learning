@@ -16,9 +16,9 @@ userinfo = pd.read_csv("D:\\Python\\Machine_Learning\\数据\\userinfo_train.csv
 overdue = pd.read_csv("D:\\Python\\Machine_Learning\\数据\\overdue_train.csv")
 userinfo.columns = ["new_user_id", "性别", "职业", "教育程度", "婚姻状态", "户口类型"]
 overdue.columns = ["new_user_id", "违约"]
-occupation = userinfo[["new_user_id","职业"]]
+occupation = userinfo[["new_user_id","职业"]]        #截取列？
 default = overdue[["new_user_id","违约"]]
-data = pd.merge(occupation, default, how="outer", on="new_user_id")
+data = pd.merge(occupation, default, how="outer", on="new_user_id")      #采用outer外连接时，会取并集，并用NaN填充；on:用于连接的列名
 plt.scatter(data["职业"], data["违约"], 1)             # scatter(x, y, [s], [c], **kwargs) [s]:可选参数，一个数或一个数组，设置每个散点的大小   [c]:可选参数，一个数或一个数组，设置每个散点的颜色
 # plt.xlabel('x')  # 横坐标轴标题
 # plt.ylabel('y')  # 纵坐标轴标题
